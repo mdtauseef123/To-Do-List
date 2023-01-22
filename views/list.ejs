@@ -1,0 +1,24 @@
+<%- include('header'); -%>
+
+<div class="box" id="heading">
+    <h1> <%= list_title %> </h1>
+</div>
+
+<div class="box">
+    <% for(var i=0;i<new_item.length;i++){ %>
+    <div class="item">
+        <input type="checkbox">
+        <p><%= new_item[i] %></p>
+    </div>
+    <% } %>
+
+    <form class="item" action="/" method="post">
+        <input type="text" name="each_list" placeholder="New Work" autocomplete="off">
+        <br>
+        <!-- We sneakily passed the page_title in the value attribute of the button in order to differentiate which page submit 
+        button is clicked i.e. Home or Work route. -->
+        <button type="submit" name="list" value=<%= list_title %> >+</button>
+    </form>
+</div>
+    
+<%- include('footer'); -%>
